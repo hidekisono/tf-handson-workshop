@@ -9,7 +9,11 @@ region = var.region
 }
 
 resource "aws_instance" "hello-tf-instance" {
-ami = var.ami
-count = var.hello_tf_instance_count
-instance_type = var.hello_tf_instance_type
+  ami = var.ami
+  count = var.hello_tf_instance_count
+  instance_type = var.hello_tf_instance_type
+  tags = map(
+  "owner", "Kabu",
+  "ttl", "100"
+  )
 }
